@@ -99,6 +99,15 @@ public class Projeto5 {
             valoresSalarios[i][3] = salarioLiquido;
         }
 
+        /*
+         * Casos de teste:
+         * Salario Bruto    INSS        % INSS  IR           % IR   Salario Liquido
+         * R$ 455,69        R$ 34,18      7,5%  R$ 0,00       0,0%  R$ 421,51
+         * R$ 2.315,99      R$ 208,44     9,0%  R$ 173,70     7,5%  R$ 1.933,85
+         * R$ 3.581,11      R$ 429,73    12,0%  R$ 537,17    15,0%  R$ 2.614,21
+         * R$ 4.545,45      R$ 636,36    14,0%  R$ 1.022,73  22,5%  R$ 2.886,36
+         * R$ 15.888,88     R$ 2.224,44  14,0%  R$ 4.369,44  27,5%  R$ 9.294,99
+         * */
         imprimeValoresFormatados(valoresSalarios);
 
         sc.close();
