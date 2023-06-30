@@ -63,20 +63,24 @@ public class Projeto5 {
          */
         Scanner sc = new Scanner(System.in);
         double salarioBruto, descontoINSS, descontoIR, descontos, salarioLiquido;
+        double[][] valoresSalarios = new double[5][4];
 
         for(int i = 0; i < 5; i++) {
             System.out.println("Digite o salário bruto para o cálculo:");
             salarioBruto = sc.nextDouble();
 
+            // cálculo dos valores de desconto e do salário líquido
             descontoINSS = calculaDescontoINSS(salarioBruto);
             descontoIR = calculaDescontoIR(salarioBruto);
             descontos = descontoINSS + descontoIR;
             salarioLiquido = salarioBruto - descontos;
 
-            System.out.printf("Salário Bruto %.2f%n", salarioBruto);
-            System.out.printf("INSS %.2f%n", descontoINSS);
-            System.out.printf("IR %.2f%n", descontoIR);
-            System.out.printf("Salário Liquido %.2f%n", salarioLiquido);
+            // guardando os valores calculados na matriz
+            valoresSalarios[i][0] = salarioBruto;
+            valoresSalarios[i][1] = descontoINSS;
+            valoresSalarios[i][2] = descontoIR;
+            valoresSalarios[i][3] = salarioLiquido;
+
             System.out.println("----------------------------------------------------------------------------------------");
         }
 
