@@ -29,6 +29,34 @@ public class Projeto5 {
         return salarioBruto * porcentagemDesconto;
     }
 
+    public static double calculoDescontoIR(double salarioBruto) {
+        double porcentagemDesconto = 0;
+
+        /*
+         * Salário	                % Desconto Imposto de Renda
+         * até 1.903,98	            0%
+         * de 1.903,99 até 2.826,65	7,5%
+         * de 2.826,66 até 3.751,05	15%
+         * de 3.751,06 até 4.664,68	22,50%
+         * Acima de 4.664,68	    27,50%
+         * */
+
+        if(salarioBruto <= 1903.98) {
+            porcentagemDesconto = 0; // 0%
+        } else if(salarioBruto >= 1903.99 && salarioBruto <= 2826.65) {
+            porcentagemDesconto = 0.075; // 7,5%
+        } else if(salarioBruto >= 2826.66 && salarioBruto <= 3751.05) {
+            porcentagemDesconto = 0.15; // 15%
+        } else if(salarioBruto >= 3751.06 && salarioBruto <= 4664.68) {
+            porcentagemDesconto = 0.225; // 22,5%
+        } else if(salarioBruto > 4664.68) {
+            porcentagemDesconto = 0.275; // 27,5%
+        }
+
+        return salarioBruto * porcentagemDesconto;
+    }
+
+
     public static void main(String[] args) {
 
         /**
@@ -42,6 +70,7 @@ public class Projeto5 {
             salarioBruto = sc.nextDouble();
             System.out.printf("Salário digitado foi %.2f%n", salarioBruto);
             System.out.println(calculoDescontoINSS(salarioBruto));
+            System.out.println(calculoDescontoIR(salarioBruto));
             System.out.println("----------------------------------------------------------------------------------------");
         }
 
