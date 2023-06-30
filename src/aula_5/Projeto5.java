@@ -56,6 +56,21 @@ public class Projeto5 {
         return salarioBruto * porcentagemDesconto;
     }
 
+    public static void imprimeValoresFormatados(double[][] valores) {
+        System.out.println("----------------------------------------------------------------------------------------");
+        System.out.println("Os valores calculados de acordo com os 5 salários brutos dados:");
+        System.out.printf("|%5s|%15s|%15s|%15s|%15s|%n", "LINHA", "SALARIO BRUTO", "DESCONTO INSS", "DESCONTO IR",
+                "SALARIO LIQUIDO");
+
+        for(int i = 0; i < valores.length; i++) {
+            System.out.printf("|%5d", i + 1);
+            for(int j = 0; j < valores[i].length; j++) {
+                System.out.printf("|R$ %12.2f", valores[i][j]);
+            }
+            System.out.printf("|%n");
+        }
+    }
+
     public static void main(String[] args) {
 
         /**
@@ -80,9 +95,9 @@ public class Projeto5 {
             valoresSalarios[i][1] = descontoINSS;
             valoresSalarios[i][2] = descontoIR;
             valoresSalarios[i][3] = salarioLiquido;
-
-            System.out.println("----------------------------------------------------------------------------------------");
         }
+
+        imprimeValoresFormatados(valoresSalarios);
 
         sc.close();
     }
