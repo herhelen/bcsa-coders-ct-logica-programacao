@@ -4,6 +4,31 @@ import java.util.Scanner;
 
 public class Projeto5 {
 
+    public static double calculoDescontoINSS(double salarioBruto) {
+        double porcentagemDesconto = 0;
+        /*
+        * Salário	                % Desconto INSS
+        * até 1.212,00	            7,5%
+        * de 1212,01 até 2.427,35	9%
+        * de 2.427,36 até 3.641,03	12%
+        * de 3.641,04 até 7.087,22	14%
+        * */
+
+        if(salarioBruto <= 1212.00) {
+            porcentagemDesconto = 0.075; // 7,5%
+        } else if(salarioBruto >= 1212.01 && salarioBruto <= 2427.35) {
+            porcentagemDesconto = 0.09; // 9%
+        } else if(salarioBruto >= 2427.36 && salarioBruto <= 3641.03) {
+            porcentagemDesconto = 0.12; // 12%
+
+            // 14% valem para salários maiores que 7.087,22
+        } else if(salarioBruto >= 3641.04) {
+            porcentagemDesconto = 0.14; // 14%
+        }
+
+        return salarioBruto * porcentagemDesconto;
+    }
+
     public static void main(String[] args) {
 
         /**
@@ -16,6 +41,7 @@ public class Projeto5 {
             System.out.println("Digite o salário bruto para o cálculo:");
             salarioBruto = sc.nextDouble();
             System.out.printf("Salário digitado foi %.2f%n", salarioBruto);
+            System.out.println(calculoDescontoINSS(salarioBruto));
             System.out.println("----------------------------------------------------------------------------------------");
         }
 
