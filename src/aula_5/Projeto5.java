@@ -73,15 +73,17 @@ public class Projeto5 {
 
     public static void main(String[] args) {
 
-        /**
-         * Cálculo de Salário
-         */
+        /*
+         * Projeto: Cálculo de Salário
+         * */
         Scanner sc = new Scanner(System.in);
         double salarioBruto, descontoINSS, descontoIR, descontos, salarioLiquido;
         double[][] valoresSalarios = new double[5][4];
 
+        System.out.println("Para o início do cálculo de salário, digite 5 salários brutos.");
+
         for(int i = 0; i < 5; i++) {
-            System.out.println("Digite o salário bruto para o cálculo:");
+            System.out.printf("Digite o salário bruto para o cálculo (%d/5):%n", i);
             salarioBruto = sc.nextDouble();
 
             // cálculo dos valores de desconto e do salário líquido
