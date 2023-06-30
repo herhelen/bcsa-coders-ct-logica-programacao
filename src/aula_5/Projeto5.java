@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Projeto5 {
 
-    public static double calculoDescontoINSS(double salarioBruto) {
+    public static double calculaDescontoINSS(double salarioBruto) {
         double porcentagemDesconto = 0;
         /*
         * Salário	                % Desconto INSS
@@ -29,7 +29,7 @@ public class Projeto5 {
         return salarioBruto * porcentagemDesconto;
     }
 
-    public static double calculoDescontoIR(double salarioBruto) {
+    public static double calculaDescontoIR(double salarioBruto) {
         double porcentagemDesconto = 0;
 
         /*
@@ -56,21 +56,27 @@ public class Projeto5 {
         return salarioBruto * porcentagemDesconto;
     }
 
-
     public static void main(String[] args) {
 
         /**
          * Cálculo de Salário
          */
         Scanner sc = new Scanner(System.in);
-        double salarioBruto;
+        double salarioBruto, descontoINSS, descontoIR, descontos, salarioLiquido;
 
         for(int i = 0; i < 5; i++) {
             System.out.println("Digite o salário bruto para o cálculo:");
             salarioBruto = sc.nextDouble();
-            System.out.printf("Salário digitado foi %.2f%n", salarioBruto);
-            System.out.println(calculoDescontoINSS(salarioBruto));
-            System.out.println(calculoDescontoIR(salarioBruto));
+
+            descontoINSS = calculaDescontoINSS(salarioBruto);
+            descontoIR = calculaDescontoIR(salarioBruto);
+            descontos = descontoINSS + descontoIR;
+            salarioLiquido = salarioBruto - descontos;
+
+            System.out.printf("Salário Bruto %.2f%n", salarioBruto);
+            System.out.printf("INSS %.2f%n", descontoINSS);
+            System.out.printf("IR %.2f%n", descontoIR);
+            System.out.printf("Salário Liquido %.2f%n", salarioLiquido);
             System.out.println("----------------------------------------------------------------------------------------");
         }
 
